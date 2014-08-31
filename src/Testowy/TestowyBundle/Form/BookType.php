@@ -16,8 +16,17 @@ class BookType extends AbstractType
     {
         $builder
             ->add('author')
-            ->add('price')
+            ->add('price','money')
             ->add('title')
+            ->add('categories','collection',array(
+                'type'=>new BookCategoryType(),
+                'allow_add'=>true,
+                'allow_delete'=>true,
+
+            ))
+            ->add('save','submit',array(
+                'label'=>'Zapisz'
+            ))
         ;
     }
     

@@ -31,7 +31,7 @@ class BookHasCategory
     /**
      * @var \Book
      *
-     * @ORM\ManyToOne(targetEntity="Book")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="categories")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="book", referencedColumnName="id")
      * })
@@ -49,4 +49,83 @@ class BookHasCategory
     private $category;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param integer $priority
+     * @return BookHasCategory
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return integer 
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * Set book
+     *
+     * @param \Testowy\TestowyBundle\Entity\Book $book
+     * @return BookHasCategory
+     */
+    public function setBook(\Testowy\TestowyBundle\Entity\Book $book = null)
+    {
+        $this->book = $book;
+
+        return $this;
+    }
+
+    /**
+     * Get book
+     *
+     * @return \Testowy\TestowyBundle\Entity\Book 
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Testowy\TestowyBundle\Entity\Category $category
+     * @return BookHasCategory
+     */
+    public function setCategory(\Testowy\TestowyBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Testowy\TestowyBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
